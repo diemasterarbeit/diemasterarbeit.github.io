@@ -112,10 +112,13 @@ Was ist dein Fachbereich?">
 		
 	</script>
 	<?php
+	echo $_GET[test1]?>
+	<?php
 
 	// The value of the variable name is found
 	echo "<h1>Hello " . $_GET["test1"] . "</h1>";
 
 	?>
+	<script>var c = '<? echo $_GET['test1'] ?>';</script>
 </body>
 </html>
