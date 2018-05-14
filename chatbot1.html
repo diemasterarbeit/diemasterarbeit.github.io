@@ -42,7 +42,7 @@ Was ist dein Fachbereich?">
 											</select>
 										</div>
 										<div data-conv-case="WW">
-											<select name="studiengang2" data-conv-question="Was ist dein Studiengang?">
+											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
 												<option value="BWL">Betriebswirtschaft</option>
 												<option value="Fin">Finanzen</option>
 												<option value="Log">Logistik</option>
@@ -53,7 +53,7 @@ Was ist dein Fachbereich?">
 											</select>
 										</div>
 										<div data-conv-case="NW">
-											<select name="studiengang3" data-conv-question="Was ist dein Studiengang?">
+											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
 												<option value="PHY">Physik</option>
 												<option value="MAT">Mathematik</option>
 												<option value="CHE">Chemie</option>
@@ -62,7 +62,7 @@ Was ist dein Fachbereich?">
 											</select>
 										</div>
 										<div data-conv-case="INF">
-											<select name="studiengang4" data-conv-question="Was ist dein Studiengang?">
+											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
 												<option value="WINF">Wirtschaftsinformatik</option>
 												<option value="TINF">Technische Informatik</option>
 												<option value="INFT">Informationstechnik</option>
@@ -71,7 +71,7 @@ Was ist dein Fachbereich?">
 											</select>
 										</div>
 										<div data-conv-case="weitere">
-											<select name="studiengang5" data-conv-question="Was ist dein Studiengang?">
+											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
 												<option value="PSY">Psychologie</option>
 												<option value="MWISS">Medienwissenschaften</option>
 												<option value="KWISS">Kommunikationswissenschaften</option>
@@ -163,9 +163,11 @@ Was ist dein Fachbereich?">
 				console.log("Hallo");
 				console.log("data: " + data);
 				console.log("_________");
+				console.log(data.get("fachbereich"));
+				console.log(data.get("studiengang"));
 				console.log(data.get("name"));
 				console.log(data.get("email"));
-				window.location = "http://umfragen.ise.tu-darmstadt.de/sosci/chat/?fach=Wirt&stud=elek&bund=ham&em=a@r.d&chat=1&q=base&admin&page=1&l=ger";
+				//window.location = "http://umfragen.ise.tu-darmstadt.de/sosci/chat/?fach=Wirt&stud=elek&bund=ham&em=a@r.d&chat=1&q=base&admin&page=1&l=ger";
 			}
 		});
 		</script>
