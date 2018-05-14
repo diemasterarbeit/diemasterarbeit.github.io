@@ -43,7 +43,7 @@ Was ist dein Fachbereich?">
 										</div>
 										<div data-conv-case="WW">
 											<select name="studiengang2" data-conv-question="Was ist dein Studiengang?">
-												<option value="BW">Betriebswirtschaft</option>
+												<option value="BWL">Betriebswirtschaft</option>
 												<option value="Fin">Finanzen</option>
 												<option value="Log">Logistik</option>
 												<option value="Mark">Marketing</option>
@@ -54,21 +54,53 @@ Was ist dein Fachbereich?">
 										</div>
 										<div data-conv-case="NW">
 											<select name="studiengang3" data-conv-question="Was ist dein Studiengang?">
-												<option value="test">NW</option>
+												<option value="PHY">Physik</option>
+												<option value="MAT">Mathematik</option>
+												<option value="CHE">Chemie</option>
+												<option value="BIO">Biologie</option>
+												<option value="weitere NW">Weitere Naturwissenschaften</option>
 											</select>
 										</div>
 										<div data-conv-case="INF">
 											<select name="studiengang4" data-conv-question="Was ist dein Studiengang?">
-												<option value="test">inf</option>
+												<option value="WINF">Wirtschaftsinformatik</option>
+												<option value="TINF">Technische Informatik</option>
+												<option value="INFT">Informationstechnik</option>
+												<option value="KINF">Kommunikationsinformatik</option>
+												<option value="weitere INF">Weitere Informatik</option>
 											</select>
 										</div>
 										<div data-conv-case="weitere">
 											<select name="studiengang5" data-conv-question="Was ist dein Studiengang?">
-												<option value="test">weitere</option>
+												<option value="PSY">Psychologie</option>
+												<option value="MWISS">Medienwissenschaften</option>
+												<option value="KWISS">Kommunikationswissenschaften</option>
+												<option value="SWISS">Sozialwissenschaften</option>
+												<option value="weitere Studienrichtungen">Weitere Studienrichtungen</option>
 											</select>
 										</div>
-
 									</div>
+									<select name="bundesland" data-conv-question="In welchem Bundesland soll das Unternehmen sein?">
+										<option value="NRW">Nordrhein-Westfalen</option>
+										<option value="BY">Bayern</option>
+										<option value="BW">Baden-Württemberg</option>
+										<option value="HE">Hessen</option>
+										<option value="NI">Niedersachsen</option>
+										<option value="RP">Rheinland-Pfalz</option>
+										<option value="BE">Berlin</option>
+										<option value="SN">Sachsen</option>
+										<option value="HH">Hamburg</option>
+										<option value="SH">Schleswig-Holstein</option>
+										<option value="BB">Brandenburg</option>
+										<option value="TH">Thüringen</option>
+										<option value="ST">Sachsen-Anhalt</option>
+										<option value="MV">Mecklenburg-Vorpommern</option>
+										<option value="SL">Saarland</option>
+										<option value="HB">Bremen</option>
+									</select>
+									<input type="text" data-conv-question="Super - Ich habe bereits interessante Themen für dich gefunden." data-no-answer="true">
+									<input type="text" data-conv-question="Die nun kommende Frage handelt darüber, ob du dich für unseren Newsletter anmelden willst." data-no-answer="true">
+									<input data-conv-question="Wenn du möchtest nenne mir deine E-Mail Adresse und ich registriere dich für unseren Newsletter mit aktuellen Themen zu deinen Angaben." data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="Deine E-Mail (optional)">
 	                                <input type="text" name="name" data-conv-question="Alright! First, tell me your full name, please.|Okay! Please, tell me your name first.">
 	                                <input type="text" data-conv-question="Howdy, {name}:0! It's a pleasure to meet you. (note that this question doesn't expect any answer)" data-no-answer="true">
 	                                <input type="text" data-conv-question="This plugin supports multi-select too. Let's see an example." data-no-answer="true">
