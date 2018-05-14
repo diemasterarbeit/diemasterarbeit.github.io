@@ -167,15 +167,21 @@ Was ist dein Fachbereich?">
 			var data = window.location.search;
 			data = new URLSearchParams(window.location.search);
 			if (data != "") {
-				console.log("Hallo");
 				console.log("data: " + data);
-				console.log("_________");
 				console.log(data.get("fachbereich"));
 				console.log(data.get("studiengang"));
 				console.log(data.get("bundesland"));
 				console.log(data.get("email"));
+				var fachbereich = data.get("fachbereich"));
+				var studiengang = data.get("studiengang"));
+				var bundesland = data.get("bundesland"));
+				var email = data.get("email"));
 				var chatV = $('#chatV').text();
 				console.log(chatV);
+				var submitString = "fach=" + fachbereich + "&stud=" + studiengang + "&bund=" + bundesland + "&em=" + email + "&chatV=" + chatV;
+				var surveyString =  "http://umfragen.ise.tu-darmstadt.de/sosci/chat/?";
+				var URL = surveyString + submitString;
+				console.log(URL);
 				//window.location = "http://umfragen.ise.tu-darmstadt.de/sosci/chat/?fach=Wirt&stud=elek&bund=ham&em=a@r.d&chat=1&q=base&admin&page=1&l=ger";
 			}
 		});
