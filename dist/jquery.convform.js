@@ -199,7 +199,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                 }
             },
             formIdName : 'convForm',
-            inputIdName : 'userInput', style : 'display:none',
+            inputIdName : 'userInput',
             loadSpinnerVisible : '',
             buttonText: '▶'
         }, options);
