@@ -85,11 +85,11 @@ ConvState.prototype.printQuestion = function(){
     }.bind(this), 500);
 };
 ConvState.prototype.printAnswers = function(answers, multiple){
-    this.wrapper.find('select.options select.option').remove();																	//div.options div.option
+    this.wrapper.find('div.options div.option').remove();
     if(multiple){
         for(var i in answers){
             if(answers.hasOwnProperty(i)){
-                var option = $('<option class="option">'+answers[i].text+'</select>')										//<div                      </div
+                var option = $('<div class="option">'+answers[i].text+'</div>')
                     .data("answer", answers[i])
                     .click(function(event){
                         var indexOf = this.current.input.selected.indexOf($(event.target).data("answer").value);
@@ -108,28 +108,28 @@ ConvState.prototype.printAnswers = function(answers, multiple){
                             this.wrapper.find('button.submit').removeClass('glow');
                         }
                     }.bind(this));
-                this.wrapper.find('select.options').append(option);																//div.options
+                this.wrapper.find('div.options').append(option);
                 $(window).trigger('dragreset');
             }
         }
     } else {
         for(var i in answers){
             if(answers.hasOwnProperty(i)){
-                var option = $('<option class="option">'+answers[i].text+'</option>')
+                var option = $('<div class="option">'+answers[i].text+'</div>')
                     .data("answer", answers[i])
                     .click(function(event){
                         this.current.input.selected = $(event.target).data("answer").value;
                         this.wrapper.find(this.parameters.inputIdHashTagName).removeClass('error');
                         this.wrapper.find(this.parameters.inputIdHashTagName).val('');
                         this.answerWith($(event.target).data("answer").text, $(event.target).data("answer"));
-                        this.wrapper.find('select.options option.option').remove();														//div.options div.option
+                        this.wrapper.find('div.options div.option').remove();
                     }.bind(this));
-                this.wrapper.find('select.options').append(option);																		//????
+                this.wrapper.find('div.options').append(option);
                 $(window).trigger('dragreset');
             }
         }
     }
-    var diff = $(this.wrapper).find('select.options').height();																			//div.options
+    var diff = $(this.wrapper).find('div.options').height();
     $(this.wrapper).find('#messages').css({paddingBottom: diff});
 
 };
@@ -157,10 +157,10 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
     var message = $('<div class="message from">'+answerText+'</div>');
 
     //removes options before appending message so scroll animation runs without problems
-    $(this.wrapper).find("select.options option.option").remove();																			//div.options div.option
+    $(this.wrapper).find("div.options div.option").remove();
 
 
-    var diff = $(this.wrapper).find('select.options').height();																				//div.options
+    var diff = $(this.wrapper).find('div.options').height();
     $(this.wrapper).find('#messages').css({paddingBottom: diff});
     $(this.wrapper).find(this.parameters.inputIdHashTagName).focus();
     if (answerObject.hasOwnProperty('callback')) {
@@ -187,7 +187,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
         var wrapper = this;
 
         var parameters = $.extend(true, {}, {
-            placeHolder : 'Deine E-Mail (optional)',																/*'Type Here',*/
+            placeHolder : 'Deine E-Mail (optional)',																				//'Hier eingeben',
             typeInputUi : 'textarea',
             timeOutFirstQuestion : 1200,
             buttonClassStyle : 'icon2-arrow',
@@ -201,7 +201,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
             formIdName : 'convForm',
             inputIdName : 'userInput',
             loadSpinnerVisible : '',
-            buttonText: "▶ Los geht's"																					/*'▶'*/
+            buttonText: "▶ Los geht's"																								//'▶'
         }, options);
 
         /*
@@ -259,10 +259,10 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 
             switch(parameters.typeInputUi) {
                 case 'input':
-                    inputForm = $('<form id="' + parameters.formIdName + '" class="convFormDynamic"><select class="options dragscroll"></select><input id="' + parameters.inputIdName + '" type="text" placeholder="'+ parameters.placeHolder +'" class="userInputDynamic"></><button type="submit" class="submit">'+parameters.buttonText+'</button><span class="clear"></span></form>');
+                    inputForm = $('<form id="' + parameters.formIdName + '" class="convFormDynamic"><div class="options dropdown"></div><input id="' + parameters.inputIdName + '" type="text" placeholder="'+ parameters.placeHolder +'" class="userInputDynamic"></><button type="submit" class="submit">'+parameters.buttonText+'</button><span class="clear"></span></form>');
                     break;
                 case 'textarea':
-                    inputForm = $('<form id="' + parameters.formIdName + '" class="convFormDynamic"><select class="options dragscroll"></select><textarea id="' + parameters.inputIdName + '" rows="1" placeholder="'+ parameters.placeHolder +'" class="userInputDynamic"></textarea><button type="submit" class="submit">'+parameters.buttonText+'</button><span class="clear"></span></form>');
+                    inputForm = $('<form id="' + parameters.formIdName + '" class="convFormDynamic"><div class="options dropdown"></div><textarea id="' + parameters.inputIdName + '" rows="1" placeholder="'+ parameters.placeHolder +'" class="userInputDynamic"></textarea><button type="submit" class="submit">'+parameters.buttonText+'</button><span class="clear"></span></form>');
                     break;
                 default :
                     console.log('typeInputUi must be input or textarea');
@@ -406,7 +406,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                         }
                     }
                 } else {
-                    if(!state.wrapper.find(parameters.inputIdHashTagName).hasClass("error")){
+                    if(input.trim() != '' && !state.wrapper.find(parameters.inputIdHashTagName).hasClass("error")){
                         $(this).parent('form').submit();
                     } else {
                         $(state.wrapper).find(parameters.inputIdHashTagName).focus();

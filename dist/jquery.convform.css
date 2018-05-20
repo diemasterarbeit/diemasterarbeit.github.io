@@ -99,7 +99,7 @@ form.convFormDynamic textarea.userInputDynamic {
     min-height: 1.7em;
     max-height: 10rem;
     display: block;
-    max-width: 88%;
+    max-width: 70%;																									/*88%;*/
     margin-right: 2.5%;
 }
 
@@ -283,14 +283,14 @@ div#chat div.options div.option.selected:hover {
 
 form.convFormDynamic button.submit {
     padding: 3px;
-    border: none;
+    border: solid;																						/*none;*/
     float: left;
     margin: 5px;
     color: #06c5a6;
     cursor: pointer;
     border-radius: 8px;
     font-size: 1.1rem;
-    width: 36px;
+    width: 120px																						/*36px;*/
     height: 35px;
     margin-top: 4px;
     background: #fff;

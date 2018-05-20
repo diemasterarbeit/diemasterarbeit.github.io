@@ -56,47 +56,12 @@
 .tr {
     display:table-row; 
 }
-select-wrapper:before {
-	font-family: fontello;
-	content: "\f107";
-	font-size: 20px;
-	position: absolute;
-	right: 15px;
-	top: 10px;
-	color: #fff;
-	pointer-events: none;
-}
-select {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	border: none;
-	width: 100%;
-	height: 40px;
-	padding-left: 10px;
-	background: url("https://maxcdn.icons8.com/Share/icon/Arrows//expand_arrow1600.png") 96% / 5% no-repeat #fff;
-	background-color: #06b79a;
-	color: #fff;
-	font-family: Roboto;
-	font-size: 16px;
-	box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);
-	border-radius: 3px;
-	outline: none;
-	cursor: pointer;
-}
-select::-ms-expand {
-	background-color: transparent;
-}
-select:focus::-ms-value {
-	display: none;
-}
     </style>
-	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $( function() {
             $('[achbereich]').selectmenu();
-        });
+        }
     </script>
     <script>
 /* When the user clicks on the button, 
@@ -119,30 +84,6 @@ window.onclick = function(event) {
     }
   }
 }
-</script>
-<script>
-(function(doc,found) {
-  window.addEventListener('DOMSubtreeModified', function() {
-
-    var yourdiv = doc.querySelector("div.message:nth-child(9)");
-
-    if(found && !yourdiv){
-      // Was there but is gone, do something
-      found = false;
-
-    }
-
-    if(yourdiv){
-      // Found it, do something
-      found = true;
-	  $('.submit').show();
-	  $('#userInput').show();
-	  $('.options').hide();
-
-    }
-
-  }, false);
-})(document,false);
 </script>
 </head>
 <body>
@@ -218,26 +159,36 @@ Was ist dein Fachbereich?">
 										</div>
 									</div>
 									<select name="bundesland" data-conv-question="In welchem Bundesland soll das Unternehmen sein?">
-										<option value="BW">Baden-Württemberg</option>
-										<option value="BY">Bayern</option>
-										<option value="BE">Berlin</option>
-										<option value="BB">Brandenburg</option>
-										<option value="HB">Bremen</option>
-										<option value="HH">Hamburg</option>
-										<option value="HE">Hessen</option>
-										<option value="MV">Mecklenburg-Vorpommern</option>
-										<option value="NI">Niedersachsen</option>
 										<option value="NRW">Nordrhein-Westfalen</option>
+										<option value="BY">Bayern</option>
+										<option value="BW">Baden-Württemberg</option>
+										<option value="HE">Hessen</option>
+										<option value="NI">Niedersachsen</option>
 										<option value="RP">Rheinland-Pfalz</option>
-										<option value="SL">Saarland</option>
+										<option value="BE">Berlin</option>
 										<option value="SN">Sachsen</option>
-										<option value="ST">Sachsen-Anhalt</option>
+										<option value="HH">Hamburg</option>
 										<option value="SH">Schleswig-Holstein</option>
+										<option value="BB">Brandenburg</option>
 										<option value="TH">Thüringen</option>
+										<option value="ST">Sachsen-Anhalt</option>
+										<option value="MV">Mecklenburg-Vorpommern</option>
+										<option value="SL">Saarland</option>
+										<option value="HB">Bremen</option>
 									</select>
 									<input type="text" data-conv-question="Super - Ich habe bereits interessante Themen für dich gefunden." data-no-answer="true">
 									<input type="text" data-conv-question="Die nun kommende Frage handelt darüber, ob du dich für unseren Newsletter anmelden willst." data-no-answer="true">
-									<input data-conv-question="Wenn du möchtest nenne mir deine E-Mail Adresse und ich registriere dich für unseren Newsletter mit aktuellen Themen zu deinen Angaben." data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="Deine E-Mail (optional)">
+									<select name="publishMail" data-callback="storeState" data-conv-question="Möchtest du dich für unseren Newsletter anmelden?">
+										<option value="ja">Ja</option>
+										<option value="nein">Nein</option>
+									</select>
+									<div data-conv-fork="publishMail">
+										<div data-conv-case="ja">
+											<input type="text" data-conv-question="Wenn du möchtest nenne mir deine E-Mail Adresse und ich registriere dich für unseren Newsletter mit aktuellen Themen zu deinen Angaben." data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="Deine E-Mail (optional)">
+										</div>
+										<div data-conv-case="nein">
+										</div>
+									</div>
 	                            </form>
 	                        </div>
 	                    </div>
@@ -284,8 +235,6 @@ Was ist dein Fachbereich?">
 	</script>
 	<script>
 		$(document).ready(function(){
-			$('.submit').hide();
-			$('#userInput').hide();
 			var data = window.location.search;
 			data = new URLSearchParams(window.location.search);
 			if (data != "") {
@@ -307,15 +256,6 @@ Was ist dein Fachbereich?">
 				window.location = URL;
 			}
 		});
-		</script>
-		<script>
-			$(window).on('load', function() {
-			if ($('div.message:nth-child(9)').length > 0) {
-				console.log('Letzte Frage erreicht, blende Textfeld + Button ein')
-				$('.submit').show();
-				$('#userInput').show();
-			}
-			});
 		</script>
 </body>
 </html>
