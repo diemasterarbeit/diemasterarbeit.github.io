@@ -39,21 +39,30 @@
 			position:relative;
 			top:1px;
 		}
+		.justify {
+			text-align: justify;
+			width: 700px
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<h1>Willkommen!</h1>
-		<p>Wir unterstützen dabei den Auftritt einer Website zu verbessern,<br>die Themen für Abschlussarbeiten von Unternehmen an Studenten vermittelt.</p> 
-		<p>Du wurdest ausgewählt auf der nächsten Seite mit einem Interface zu arbeiten, <br>um für dich ein interessantes Thema für eine potentielle Abschlussarbeit zu finden.</p>
-		<p>Anschließend wirst du zu einem Fragebogen weitergeleitet,<br>indem es um deine Wahrnehmung des Interfaces gehen soll.</p>
-		<p>Deine Angaben im Interface werden an das Unternehmen zur Auswertung und Weiterverwendung weitergeleitet,<br>deine Angaben im Fragebogen danach werden vollständig vertraulich und anonym behandelt.</p>
-		<p>Insgesamt wird es ca. 10 Minuten dauern.</p>
-		<p>Vielen Dank für deine Teilnahme!</p>
+		<br>
+		<br>
+		<p class="justify">Wir unterstützen dabei den Auftritt einer Website zu verbessern, die Themen für Abschlussarbeiten von Unternehmen an Studenten vermittelt.
+			<br>Du wurdest ausgewählt auf der nächsten Seite mit einem Interface zu arbeiten, um für dich ein interessantes Thema für eine potentielle Abschlussarbeit zu finden.
+			<br>Anschließend wirst du zu einem Fragebogen weitergeleitet, indem es um deine Wahrnehmung des Interfaces gehen soll.
+			<br>Deine Angaben im Interface werden an das Unternehmen zur Auswertung und Weiterverwendung weitergeleitet. Selbstverständlich werden alle deine Angaben vertraulich und anonym behandelt.
+			<br>Insgesamt wird es ca. 10 Minuten dauern.
+			</p> 
+			<br>
+		<h3>Vielen Dank für deine Teilnahme!</h3>
+		<br>
 		<a href="/chatbot1.html" class="myButton">Weiter</a>
-		<a onclick="document.getElementById('number').innerHTML = getRndNr(1,5)" class="myButton">Test</a>
+		<!--<a onclick="document.getElementById('number').innerHTML = getRndNr(1,5)" class="myButton">Test</a>
 		<a onclick="forwardPage()" class="myButton">forward</a>
-		<p id="number"></p>
+		<p id="number"></p>-->
 	</div>
 	<script>
 	function getRndNr(min,max) {
