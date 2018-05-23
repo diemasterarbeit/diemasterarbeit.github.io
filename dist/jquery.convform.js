@@ -322,7 +322,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                     }
                 } else if(state.current.input.hasOwnProperty('pattern')) {
                     var reg = new RegExp(state.current.input.pattern, 'i');
-                    if(reg.test($(this).val())) {
+                    if(reg.test($('#userInput').val())) {								//this --> '#userInput'
                         state.wrapper.find(parameters.inputIdHashTagName).removeClass('error');
                     } else {
                         state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
@@ -393,7 +393,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                     }
                 } else if(state.current.input.hasOwnProperty('pattern')) {
                     var reg = new RegExp(state.current.input.pattern, 'i');
-                    if(reg.test($(this).val())) {
+                    if(reg.test($('#userInput').val())) {								//this --> '#userInput'
                         state.wrapper.find(parameters.inputIdHashTagName).removeClass('error');
                     } else {
                         state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
