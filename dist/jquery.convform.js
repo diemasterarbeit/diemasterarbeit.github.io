@@ -291,6 +291,45 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                     state.printQuestion();
                 });
             }, parameters.timeOutFirstQuestion);
+			
+			$(inputForm).change(
+				function(e){
+                    var input = $(this).val();
+					console.log(state.current.input.answers);
+					var results = state.current.input.answers.filter(function (el) {
+                                return el.text.toLowerCase() == $("#convForm > select").val().toLowerCase();
+                            });
+                            if (results.length) {
+								console.log(results);
+                                state.current.input.selected = results[0];
+                                $(this).parent('form').submit();
+                            } else {
+                                state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
+                            }
+					state.current.input.selected = results[0];
+                    $(this).submit();
+				}).on('input', function(e){
+                if(state.current.input.type=="select"){
+                    var input = $(this).val();
+                    var results = state.current.input.answers.filter(function(el){
+                        return el.text.toLowerCase().indexOf(input.toLowerCase()) != -1;
+                    });
+                    if(results.length){
+                        state.wrapper.find(parameters.inputIdHashTagName).removeClass('error');
+                        state.printAnswers(results, state.current.input.multiple);
+                    } else {
+                        state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
+                    }
+                } else if(state.current.input.hasOwnProperty('pattern')) {
+                    var reg = new RegExp(state.current.input.pattern, 'i');
+                    if(reg.test($(this).val())) {
+                        state.wrapper.find(parameters.inputIdHashTagName).removeClass('error');
+                    } else {
+                        state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
+                    }
+                }
+            });
+			
 
             //binds enter to answer submit and change event to search for select possible answers
             $(inputForm).find(parameters.inputIdHashTagName).keypress(function(e){
