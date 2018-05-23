@@ -310,7 +310,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                     $(this).submit();
 				}).on('input', function(e){
                 if(state.current.input.type=="select"){
-                    var input = $(this).val();
+                    var input = $('#userInput').val();									//this --> '#userInput'
                     var results = state.current.input.answers.filter(function(el){
                         return el.text.toLowerCase().indexOf(input.toLowerCase()) != -1;
                     });
@@ -381,7 +381,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                 autosize.update($(state.wrapper).find(parameters.inputIdHashTagName));
             }).on('input', function(e){
                 if(state.current.input.type=="select"){
-                    var input = $(this).val();
+                    var input = $('#userInput').val();									//this --> '#userInput'
                     var results = state.current.input.answers.filter(function(el){
                         return el.text.toLowerCase().indexOf(input.toLowerCase()) != -1;
                     });
