@@ -155,8 +155,16 @@ window.onclick = function(event) {
 	                    <div class="card no-border">
 	                        <div id="chat" class="conv-form-wrapper">
 	                            <form action="" method="GET" class="hidden">
-	                                <select name="fachbereich" data-callback="storeState" data-conv-question="Hallo! Ich bin dein Chatbot Assistent und kann dir dabei helfen das für dich beste Thema für deine Masterarbeit zu finden. Dafür brauche ich ein paar Informationen von dir:
+	                                <input type="text" data-conv-question="Hallo! Ich bin dein Chatbot Assistent und kann dir dabei helfen das für dich beste Thema für deine Masterarbeit zu finden. Dafür brauche ich ein paar Informationen von dir:" data-no-answer="true">
+	                                <select name="fachbereich" data-callback="storeState" data-conv-question="
 Was ist dein Fachbereich?">
+							<script>
+							var agent = navigator.userAgent.toLowerCase(); 
+							var name = "firefox";
+							if (agent.indexOf(name.toLowerCase())>-1) {
+							}
+							else{document.write('<option  >Auswahl</option>');}
+							</script>
 	                                    <option value="IW">Ingenieurwissenschaften</option>
 	                                    <option value="WW">Wirtschaftswissenschaften</option>
 	                                    <option value="NW">Naturwissenschaften</option>
@@ -166,6 +174,13 @@ Was ist dein Fachbereich?">
 	                                <div data-conv-fork="fachbereich">
 	                                    <div data-conv-case="IW">
 											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
+												<script>
+													var agent = navigator.userAgent.toLowerCase(); 
+													var name = "firefox";
+													if (agent.indexOf(name.toLowerCase())>-1) {
+													}
+													else{document.write('<option  >Auswahl</option>');}
+												</script>
 												<option value="MB">Maschinenbau</option>
 												<option value="V-PT">Verfahrens/Produktionstechnik</option>
 												<option value="WerkWiss">Werkstoffwissenschaften</option>
@@ -180,6 +195,13 @@ Was ist dein Fachbereich?">
 										</div>
 										<div data-conv-case="WW">
 											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
+												<script>
+													var agent = navigator.userAgent.toLowerCase(); 
+													var name = "firefox";
+													if (agent.indexOf(name.toLowerCase())>-1) {
+													}
+													else{document.write('<option  >Auswahl</option>');}
+												</script>
 												<option value="BWL">Betriebswirtschaft</option>
 												<option value="Fin">Finanzen</option>
 												<option value="Log">Logistik</option>
@@ -191,6 +213,13 @@ Was ist dein Fachbereich?">
 										</div>
 										<div data-conv-case="NW">
 											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
+												<script>
+													var agent = navigator.userAgent.toLowerCase(); 
+													var name = "firefox";
+													if (agent.indexOf(name.toLowerCase())>-1) {
+													}
+													else{document.write('<option  >Auswahl</option>');}
+												</script>
 												<option value="PHY">Physik</option>
 												<option value="MAT">Mathematik</option>
 												<option value="CHE">Chemie</option>
@@ -200,6 +229,13 @@ Was ist dein Fachbereich?">
 										</div>
 										<div data-conv-case="INF">
 											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
+												<script>
+													var agent = navigator.userAgent.toLowerCase(); 
+													var name = "firefox";
+													if (agent.indexOf(name.toLowerCase())>-1) {
+													}
+													else{document.write('<option  >Auswahl</option>');}
+												</script>
 												<option value="WINF">Wirtschaftsinformatik</option>
 												<option value="TINF">Technische Informatik</option>
 												<option value="INFT">Informationstechnik</option>
@@ -209,6 +245,13 @@ Was ist dein Fachbereich?">
 										</div>
 										<div data-conv-case="weitere">
 											<select name="studiengang" data-conv-question="Was ist dein Studiengang?">
+												<script>
+													var agent = navigator.userAgent.toLowerCase(); 
+													var name = "firefox";
+													if (agent.indexOf(name.toLowerCase())>-1) {
+													}
+													else{document.write('<option  >Auswahl</option>');}
+												</script>
 												<option value="PSY">Psychologie</option>
 												<option value="MWISS">Medienwissenschaften</option>
 												<option value="KWISS">Kommunikationswissenschaften</option>
@@ -218,6 +261,13 @@ Was ist dein Fachbereich?">
 										</div>
 									</div>
 									<select name="bundesland" data-conv-question="In welchem Bundesland soll das Unternehmen sein?">
+										<script>
+													var agent = navigator.userAgent.toLowerCase(); 
+													var name = "firefox";
+													if (agent.indexOf(name.toLowerCase())>-1) {
+													}
+													else{document.write('<option  >Auswahl</option>');}
+												</script>
 										<option value="BW">Baden-Württemberg</option>
 										<option value="BY">Bayern</option>
 										<option value="BE">Berlin</option>
@@ -247,7 +297,13 @@ Was ist dein Fachbereich?">
 	    </div>
 	</section>
 	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
-	<script type="text/javascript" src="dist/autosize.min.js"></script>
+	<script type="text/javascript" src="dist/autosize.min.js"></script><script>
+							var agent = navigator.userAgent.toLowerCase(); 
+							var name = "firefox";
+							if (agent.indexOf(name.toLowerCase())>-1) {
+							}
+							else{document.write('<option  >Auswahl</option>');}
+							</script>
 	<script type="text/javascript" src="dist/jquery.convform.js"></script>
 
 	<script>
